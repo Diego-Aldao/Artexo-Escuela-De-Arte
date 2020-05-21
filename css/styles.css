@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
@@ -12,18 +13,337 @@ p {
   margin: 0;
 }
 
+h1 {
+  text-transform: uppercase;
+  font-size: 1.5rem;
+}
+
+h2 {
+  font-size: 1.3rem;
+}
+
+h3 {
+  font-size: 1.1rem;
+}
+
+p {
+  font-size: 0.8rem;
+}
+
 img {
   max-width: 100%;
 }
 
+.contenedor {
+  width: 90%;
+  margin: 0 auto;
+  height: 100%;
+}
+
+.oculto {
+  display: none;
+}
+
+body {
+  background-color: var(--color-fondo);
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  font-family: var(--fuente-parrafos);
+  text-transform: capitalize;
+  font-style: italic;
+  letter-spacing: 0.5px;
+}
+
 :root {
-  --fuente-titulos: ;
-  --fuente-parrafos: ;
-  --fuente-logo: ;
+  --fuente-titulos: "Playfair Display", serif;
+  --fuente-parrafos: "Source Sans Pro", sans-serif;
+  --fuente-logo: "Audiowide", cursive;
   --color-principal: #d46a92;
   --color-secundario: #6a4162;
-  --principal-claro: #f6d2d6;
-  --principal-oscuro: #f39db6;
+  --color-p-claro: #f6d2d6;
+  --color-p-oscuro: #f39db6;
   --color-fondo: #fefafa;
+}
+
+.btn {
+  font-family: var(--fuente-parrafos);
+  text-transform: capitalize;
+  font-size: 0.9rem;
+  padding: 5px 15px;
+  background: -webkit-gradient(linear, right top, left top, from(#d46a92), to(#f39db6));
+  background: linear-gradient(to left, #d46a92, #f39db6);
+  border-radius: 5px;
+  border: none;
+  color: white;
+  -webkit-box-shadow: 1px 1px 15px #f39db6;
+          box-shadow: 1px 1px 15px #f39db6;
+}
+
+.header-principal {
+  color: white;
+  position: relative;
+  width: 100%;
+  height: 300px;
+  min-height: 50vh;
+  background: url(../images/woman-sitting-on-brown-stool-374054.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.header-principal svg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  fill: var(--color-fondo);
+  z-index: 2;
+}
+
+.header-principal::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: #ee9ca7;
+  /* fallback for old browsers */
+  background: -webkit-gradient(linear, right top, left top, from(#6a4162b0), to(#d46a93af));
+  background: linear-gradient(to left, #6a4162b0, #d46a93af);
+  z-index: 1;
+}
+
+.navegacion-principal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 5vh;
+  background: rgba(0, 0, 0, 0.342);
+}
+
+.navegacion-principal .contenedor {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.navegacion-principal .contenedor-logo {
+  height: 100%;
+  width: 40%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-width: 160px;
+  max-width: 200px;
+}
+
+.navegacion-principal .contenedor-logo .logo {
+  font-family: var(--fuente-logo);
+  text-transform: uppercase;
+}
+
+.navegacion-principal .contenedor-logo span {
+  font-size: 0.9rem;
+  width: 40%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-transform: capitalize;
+  font-family: var(--fuente-parrafos);
+}
+
+.navegacion-principal .nav-header {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.navegacion-principal .nav-header .hamburguesa {
+  width: 40px;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.navegacion-principal .nav-header .hamburguesa span {
+  width: 25px;
+  height: 3px;
+  background: white;
+}
+
+.navegacion-principal .nav-header .hamburguesa .span-pequeño {
+  margin: 5px 0;
+  width: 20px;
+}
+
+.hero-contenido {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.hero-contenido .contenedor {
+  height: 60%;
+  padding: 0 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  z-index: 999;
+  color: white;
+  max-width: 550px;
+}
+
+.hero-contenido .contenedor .titulo-principal {
+  text-align: center;
+  padding: 10px 0 5px 0;
+  max-width: 400px;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  font-family: var(--fuente-titulos);
+  font-style: italic;
+}
+
+.hero-contenido .contenedor .descripcion-principal {
+  text-align: center;
+  font-size: 1rem;
+  width: 95%;
+  max-width: 340px;
+  font-family: var(--fuente-parrafos);
+  text-transform: capitalize;
+  color: #e7e7e7;
+  margin-top: 20px;
+}
+
+.hero-contenido .contenedor .btn {
+  margin-top: auto;
+  margin-bottom: 10px;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+
+@media (min-width: 520px) {
+  .header-principal {
+    height: 50vh;
+  }
+  .header-principal .navegacion-principal {
+    height: 8vh;
+  }
+}
+
+@media (min-width: 768px) {
+  .header-principal {
+    height: 70vh;
+  }
+  .navegacion-principal .nav-header {
+    width: 60%;
+  }
+  .navegacion-principal .nav-header .hamburguesa {
+    display: none;
+  }
+  .oculto {
+    display: block;
+    width: 80%;
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    list-style: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .header-principal {
+    height: 80vh;
+  }
+}
+
+@media (min-width: 1440px) {
+  .header-principal {
+    height: 90vh;
+  }
 }
 /*# sourceMappingURL=styles.css.map */
