@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+//GLOBALES
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+img {
+  max-width: 100%;
+}
+
+//TIPOGRAFIA Y COLORES
+:root {
+  --fuente-titulos: ;
+  --fuente-parrafos: ;
+  --fuente-logo: ;
+  --color-principal: #d46a92;
+  --color-secundario: #6a4162;
+  --principal-claro: #f6d2d6;
+  --principal-oscuro: #f39db6;
+  --color-fondo: #fefafa;
+}

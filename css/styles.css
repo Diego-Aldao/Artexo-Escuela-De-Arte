@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+:root {
+  --fuente-titulos: ;
+  --fuente-parrafos: ;
+  --fuente-logo: ;
+  --color-principal: #d46a92;
+  --color-secundario: #6a4162;
+  --principal-claro: #f6d2d6;
+  --principal-oscuro: #f39db6;
+  --color-fondo: #fefafa;
+}
+/*# sourceMappingURL=styles.css.map */
