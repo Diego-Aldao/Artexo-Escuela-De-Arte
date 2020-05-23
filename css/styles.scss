@@ -45,6 +45,7 @@ img {
 
 body {
   background-color: var(--color-fondo);
+  overflow-x: hidden;
 }
 a {
   color: white;
@@ -53,6 +54,14 @@ a {
   text-transform: capitalize;
   font-style: italic;
   letter-spacing: 0.5px;
+}
+
+.titulos-internos {
+  font-family: var(--fuente-titulos);
+  text-transform: uppercase;
+  font-style: italic;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
 }
 //TIPOGRAFIA Y COLORES
 :root {
@@ -99,8 +108,7 @@ a {
   color: white;
   position: relative;
   width: 100%;
-  height: 300px;
-  min-height: 50vh;
+  height: 380px;
   background: url(../images/woman-sitting-on-brown-stool-374054.jpg);
   @include background(cover, no-repeat, center);
   svg {
@@ -128,7 +136,7 @@ a {
   left: 0;
   z-index: 1000;
   width: 100%;
-  height: 5vh;
+  height: 45px;
   background: rgba(0, 0, 0, 0.342);
   .contenedor {
     display: flex;
@@ -213,17 +221,15 @@ a {
 }
 @media (min-width: 520px) {
   .header-principal {
-    height: 50vh;
+    height: 400px;
     .navegacion-principal {
-      height: 8vh;
+      height: 65px;
     }
   }
 }
 @media (min-width: 768px) {
   .header-principal {
-    height: 70vh;
-  }
-  .contenedor-logo {
+    height: 530px;
   }
   .navegacion-principal {
     .nav-header {
@@ -245,11 +251,141 @@ a {
 }
 @media (min-width: 1024px) {
   .header-principal {
-    height: 80vh;
+    height: 610px;
   }
 }
 @media (min-width: 1440px) {
   .header-principal {
-    height: 90vh;
+    height: 800px;
   }
 }
+
+//INICIO PRIMER SECCION
+.header-interno {
+  width: 100%;
+  height: 50px;
+  @include flexbox(row, center, center);
+}
+
+.primer-seccion {
+  position: relative;
+  color: rgb(71, 71, 71);
+  padding: 30px 0;
+
+  .contenedor {
+    @include flexbox(column, space-evenly, center);
+  }
+  .cartas {
+    width: 90%;
+    max-width: 350px;
+    margin: 30px 0;
+    padding: 0px 5px;
+    box-shadow: 1px 1px 20px rgb(219, 219, 219);
+    display: flex;
+    flex-direction: column;
+  }
+  .nombre-curso {
+    width: 100%;
+    height: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 10px;
+    font-style: italic;
+    letter-spacing: 1px;
+    color: rgb(107, 107, 107);
+    margin: 10px 0 70px 0;
+  }
+  .descripcion-contenedor {
+    padding: 0 5px;
+    height: 400px;
+    @include flexbox(column, center, center);
+  }
+  .descripcion {
+    @include flexbox(row, center, center);
+    width: 100%;
+    height: 180px;
+    .indice {
+      width: 20%;
+      height: 100%;
+      p {
+        height: 35px;
+        @include flexbox(row, center, center);
+        width: 35px;
+        margin: 5px auto;
+        border-radius: 50%;
+        font-weight: bold;
+        font-size: 1.1rem;
+        color: white;
+        background: linear-gradient(to left, #d46a92, #f39db6);
+        box-shadow: 1px 1px 15px #f39db6;
+      }
+    }
+    .parrafo {
+      width: 80%;
+      height: 100%;
+      text-transform: capitalize;
+      line-height: 25px;
+      padding-top: 15px;
+      text-indent: 15px;
+    }
+  }
+}
+
+//QUERYS SECCION PRINCIPAL
+
+//QUERY 768PX
+
+@media (min-width: 768px) {
+  .primer-seccion {
+    .cartas {
+      max-width: 100%;
+      flex-direction: row;
+    }
+    .ilustracion {
+      width: 50%;
+    }
+    .descripcion-contenedor {
+      width: 50%;
+    }
+    .descripcion {
+      .parrafo {
+        line-height: 31px;
+      }
+    }
+  }
+}
+
+//FIN SECCION PRINCIPAL
+
+//INICIO CARRETE
+
+.carrete {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  .contenedor-carrete {
+    margin-top: 25px;
+    width: 100%;
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    .imagenes-carrete {
+      margin: 0 10px;
+    }
+  }
+}
+/*.carrete::after {
+  content: "";
+  position: absolute;
+  top: -50px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 50%;
+  background: red;
+  transform: skewY(8deg);
+  background: var(--color-p-claro);
+  z-index: -10;
+}
+*/
