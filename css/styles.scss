@@ -301,9 +301,9 @@ a {
     @include flexbox(column, center, center);
   }
   .descripcion {
-    @include flexbox(row, center, center);
     width: 100%;
     height: 180px;
+    @include flexbox(row, center, center);
     .indice {
       width: 20%;
       height: 100%;
