@@ -16,6 +16,11 @@ h1 {
   text-transform: uppercase;
   font-size: 1.5rem;
 }
+@media (min-width: 1024px) {
+  h1 {
+    font-size: 2rem;
+  }
+}
 
 h2 {
   font-size: 1.3rem;
@@ -50,17 +55,17 @@ body {
 a {
   color: white;
   text-decoration: none;
-  font-family: var(--fuente-parrafos);
+  font-family: var(--fuente-titulos);
   text-transform: capitalize;
   font-style: italic;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
 }
 
 .titulos-internos {
   font-family: var(--fuente-titulos);
   text-transform: uppercase;
   font-style: italic;
-  font-size: 1.2rem;
   letter-spacing: 1px;
 }
 //TIPOGRAFIA Y COLORES
@@ -109,7 +114,7 @@ a {
   position: relative;
   width: 100%;
   height: 380px;
-  background: url(../images/woman-sitting-on-brown-stool-374054.jpg);
+  background: url(../images/hero-images/woman-sitting-on-brown-stool-374054.jpg);
   @include background(cover, no-repeat, center);
   svg {
     position: absolute;
@@ -137,7 +142,7 @@ a {
   z-index: 1000;
   width: 100%;
   height: 45px;
-  background: rgba(0, 0, 0, 0.342);
+  background: rgba(0, 0, 0, 0.432);
   .contenedor {
     display: flex;
     @include flexbox(row, space-between, center);
@@ -153,7 +158,6 @@ a {
       text-transform: uppercase;
     }
     span {
-      font-size: 0.9rem;
       width: 40%;
       @include flexbox(row, space-evenly, center);
       text-transform: capitalize;
@@ -197,14 +201,12 @@ a {
       text-align: center;
       padding: 10px 0 5px 0;
       max-width: 400px;
-      font-size: 1.5rem;
       letter-spacing: 1px;
       font-family: var(--fuente-titulos);
       font-style: italic;
     }
     .descripcion-principal {
       text-align: center;
-      font-size: 1rem;
       width: 95%;
       max-width: 340px;
       font-family: var(--fuente-parrafos);
@@ -250,6 +252,11 @@ a {
   }
 }
 @media (min-width: 1024px) {
+  .hero-contenido {
+    .contenedor {
+      max-height: 300px;
+    }
+  }
   .header-principal {
     height: 610px;
   }
@@ -257,6 +264,17 @@ a {
 @media (min-width: 1440px) {
   .header-principal {
     height: 800px;
+  }
+}
+@media (min-width: 1800px) {
+  .header-principal {
+    height: 1000px;
+  }
+}
+
+@media (min-width: 2200px) {
+  .header-principal {
+    height: 1200px;
   }
 }
 
@@ -267,7 +285,7 @@ a {
   @include flexbox(row, center, center);
 }
 
-.primer-seccion {
+.seccion-trabajos {
   position: relative;
   color: rgb(71, 71, 71);
   padding: 30px 0;
@@ -283,6 +301,12 @@ a {
     box-shadow: 1px 1px 20px rgb(219, 219, 219);
     display: flex;
     flex-direction: column;
+    .ilustracion {
+      img {
+        height: 292px;
+        width: 100%;
+      }
+    }
   }
   .nombre-curso {
     width: 100%;
@@ -293,7 +317,7 @@ a {
     font-style: italic;
     letter-spacing: 1px;
     color: rgb(107, 107, 107);
-    margin: 10px 0 70px 0;
+    margin: 10px 0 30px 0;
   }
   .descripcion-contenedor {
     padding: 0 5px;
@@ -336,13 +360,16 @@ a {
 //QUERY 768PX
 
 @media (min-width: 768px) {
-  .primer-seccion {
+  .seccion-trabajos {
     .cartas {
-      max-width: 100%;
+      max-width: 1200px;
       flex-direction: row;
     }
     .ilustracion {
       width: 50%;
+      img {
+        max-height: 292px;
+      }
     }
     .descripcion-contenedor {
       width: 50%;
@@ -355,6 +382,32 @@ a {
   }
 }
 
+//QUERY 1024PX
+
+@media (min-width: 1024px) {
+  .seccion-trabajos {
+    .cartas {
+      padding: 20px;
+      .ilustracion {
+      }
+      .nombre-curso {
+        margin-top: 0;
+      }
+      .descripcion {
+        .parrafo {
+          line-height: 40px;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .seccion-trabajos {
+    height: 1200px;
+  }
+}
+
 //FIN SECCION PRINCIPAL
 
 //INICIO CARRETE
@@ -362,7 +415,7 @@ a {
 .carrete {
   position: relative;
   width: 100%;
-  height: 400px;
+  height: 550px;
   .contenedor-carrete {
     margin-top: 25px;
     width: 100%;
@@ -372,6 +425,13 @@ a {
     .imagenes-carrete {
       margin: 0 10px;
     }
+  }
+  svg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    fill: var(--color-p-claro);
+    z-index: 2;
   }
 }
 /*.carrete::after {
@@ -389,3 +449,152 @@ a {
   z-index: -10;
 }
 */
+
+//QURYS CARRETE
+
+//MEDIA 1024PX
+
+@media (min-width: 768px) {
+  .carrete {
+    height: 650px;
+  }
+}
+
+//media 1244px
+@media (min-width: 1244px) {
+  .carrete {
+    height: 700px;
+  }
+}
+
+//media 1440px
+@media (min-width: 1440px) {
+  .carrete {
+    height: 800px;
+  }
+}
+
+//media 1700px
+@media (min-width: 1700px) {
+  .carrete {
+    height: 1000px;
+  }
+}
+//media 2100px
+@media (min-width: 1700px) {
+  .carrete {
+    height: 1200px;
+  }
+}
+
+//SECCION ONLINE
+
+.online {
+  position: relative;
+  background: var(--color-p-claro);
+  .cartas {
+    box-shadow: 1px 1px 15px var(--color-secundario);
+    background: var(--color-fondo);
+  }
+}
+.carrete-online {
+  background: var(--color-p-claro);
+  height: 450px;
+  .imagenes-carrete {
+    height: 300px;
+    @include flexbox(row, center, center);
+    background: var(--color-fondo);
+  }
+}
+
+//INICIO TESTIMONIALES
+
+.testimoniales {
+  background: url(../images/hero-images/happy-artist-drawing-on-easel-in-workplace-3880775.jpg);
+  @include background(cover, no-repeat, center);
+  width: 100%;
+  height: 680px;
+  position: relative;
+  padding: 15px 0;
+  .contenedor {
+    @include flexbox(column, space-evenly, center);
+  }
+  .descripcion-testimoniales {
+    margin: 15px 0;
+    background: #d46a92;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 300px;
+    max-width: 260px;
+    .imagen-testimoniales {
+      background: url(../images/testimoniales/SinTítulo.png);
+      @include background(cover, no-repeat, center);
+      height: 60px;
+      width: 60px;
+      border-radius: 50%;
+      margin: 10px 0;
+    }
+    .imagen-dos {
+      background: url(../images/testimoniales/SinTítulo2.png);
+      @include background(cover, no-repeat, center);
+    }
+    .parrafo-testimoniales {
+      position: relative;
+      height: 220px;
+      @include flexbox(column, space-between, center);
+      padding: 15px;
+      q {
+        text-align: center;
+        line-height: 32px;
+        font-family: var(--fuente-titulos);
+        font-style: italic;
+      }
+      span {
+        font-weight: bold;
+      }
+      p {
+        font-style: italic;
+      }
+    }
+    .parrafo-testimoniales::after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      background: linear-gradient(to bottom, #d46a92, #fefafa 90%);
+      z-index: -1;
+    }
+  }
+  .slick-track {
+    @include flexbox(column, space-evenly, center);
+    height: 100%;
+  }
+}
+.testimoniales::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: #ee9ca7; /* fallback for old browsers */
+  background: linear-gradient(to left, #6a4162b0, #d46a93af);
+  z-index: 1;
+}
+
+.slick-vertical {
+  margin: 0 20px;
+  position: relative;
+  z-index: 10;
+}
+
+@media (min-width: 768px) {
+  .testimoniales {
+    @include flexbox(row, space-evenly, center);
+  }
+}

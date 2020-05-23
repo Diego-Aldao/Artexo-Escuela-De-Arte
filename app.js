@@ -2,19 +2,17 @@ $(".contenedor-carrete").slick({
   dots: false,
   arrows: false,
   infinite: true,
-  speed: 300,
   slidesToShow: 3,
   slidesToScroll: 1,
+  speed: 500,
   autoplay: true,
-  autoplaySpeed: 3000,
+  autoplaySpeed: 2000,
   responsive: [
     {
       breakpoint: 580,
       settings: {
         slidesToShow: 1,
         slidesToScroll: 1,
-        infinite: true,
-        autoplay: true,
       },
     },
     {
@@ -29,8 +27,18 @@ $(".contenedor-carrete").slick({
       settings: {
         slidesToShow: 3,
         slidesToScroll: 1,
-        infinite: true,
       },
     },
   ],
+});
+$(".slick-vertical").slick({
+  dots: false,
+  arrows: false,
+  infinite: true,
+  slidesToShow: 2,
+  slidesToScroll: 1,
+  speed: 10000,
+  autoplay: true,
+  autoplaySpeed: 1,
+  vertical: true,
 });
