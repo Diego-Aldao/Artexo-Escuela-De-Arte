@@ -4,6 +4,7 @@
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 h1,
@@ -28,12 +29,30 @@ h2 {
   font-size: 1.3rem;
 }
 
+@media (min-width: 1024px) {
+  h2 {
+    font-size: 1.8rem;
+  }
+}
+
 h3 {
   font-size: 1.1rem;
 }
 
+@media (min-width: 1024px) {
+  h3 {
+    font-size: 1.6rem;
+  }
+}
+
 p {
   font-size: 0.8rem;
+}
+
+@media (min-width: 1024px) {
+  p {
+    font-size: 1rem;
+  }
 }
 
 img {
@@ -53,6 +72,7 @@ img {
 body {
   background-color: var(--color-fondo);
   overflow-x: hidden;
+  cursor: default;
 }
 
 a {
@@ -97,13 +117,14 @@ a {
   font-size: 0.9rem;
   padding: 5px 15px;
   border-radius: 5px;
-  -webkit-box-shadow: 1px 1px 15px #f39db6;
-          box-shadow: 1px 1px 15px #f39db6;
+  -webkit-box-shadow: 1px 1px 15px #fafafa;
+          box-shadow: 1px 1px 15px #fafafa;
+  cursor: pointer;
 }
 
 .btn-presencial {
-  -webkit-box-shadow: 0px 0px 15px #fefafa;
-          box-shadow: 0px 0px 15px #fefafa;
+  -webkit-box-shadow: 0px 0px 15px #fe9db6;
+          box-shadow: 0px 0px 15px #fe9db6;
 }
 
 .btn-form {
@@ -303,7 +324,6 @@ a {
 }
 
 .hero-contenido .contenedor {
-  height: 60%;
   padding: 0 10px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -318,10 +338,11 @@ a {
   position: relative;
   z-index: 999;
   color: white;
-  max-width: 550px;
+  max-width: 950px;
 }
 
-.hero-contenido .contenedor .titulo-principal {
+.hero-contenido .titulo-principal {
+  margin-top: 100px;
   text-align: center;
   padding: 10px 0 5px 0;
   max-width: 400px;
@@ -330,7 +351,7 @@ a {
   font-style: italic;
 }
 
-.hero-contenido .contenedor .descripcion-principal {
+.hero-contenido .descripcion-principal {
   text-align: center;
   width: 95%;
   max-width: 340px;
@@ -340,7 +361,7 @@ a {
   margin-top: 20px;
 }
 
-.hero-contenido .contenedor .btn {
+.hero-contenido .btn {
   margin-top: auto;
   margin-bottom: 10px;
   -ms-flex-item-align: end;
@@ -363,12 +384,23 @@ a {
   .navegacion-principal .nav-header {
     width: 60%;
   }
+  .hero-contenido .titulo-principal {
+    margin-top: 120px;
+    font-size: 2rem;
+    max-width: 450px;
+  }
+}
+
+@media (min-width: 900px) {
+  .navegacion-principal .nav-header {
+    width: 70%;
+  }
   .navegacion-principal .nav-header .hamburguesa {
     display: none;
   }
   .oculto {
     display: block;
-    width: 80%;
+    width: 100%;
     height: 100%;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -384,17 +416,30 @@ a {
 }
 
 @media (min-width: 1024px) {
-  .hero-contenido .contenedor {
-    max-height: 300px;
+  .logo {
+    font-size: 1.5rem;
+  }
+  .hero-contenido .titulo-principal {
+    margin-top: 150px;
+    font-size: 2.5rem;
+    max-width: 600px;
   }
   .header-principal {
-    height: 610px;
+    height: 750px;
   }
 }
 
 @media (min-width: 1440px) {
   .header-principal {
-    height: 800px;
+    height: 900px;
+  }
+  .hero-contenido .titulo-principal {
+    margin-top: 200px;
+    font-size: 3rem;
+    max-width: 700px;
+  }
+  .oculto a {
+    font-size: 1.3rem;
   }
 }
 
@@ -407,6 +452,11 @@ a {
 @media (min-width: 2200px) {
   .header-principal {
     height: 1200px;
+  }
+  .hero-contenido .titulo-principal {
+    margin-top: 250px;
+    font-size: 4rem;
+    max-width: 900px;
   }
 }
 
@@ -480,7 +530,7 @@ a {
   padding: 10px;
   font-style: italic;
   letter-spacing: 1px;
-  color: #6b6b6b;
+  color: #646464;
   margin: 10px 0 30px 0;
 }
 
@@ -591,6 +641,9 @@ a {
 }
 
 @media (min-width: 1024px) {
+  .seccion-trabajos {
+    height: 1400px;
+  }
   .seccion-trabajos .cartas {
     padding: 20px;
   }
@@ -599,12 +652,6 @@ a {
   }
   .seccion-trabajos .cartas .descripcion .parrafo {
     line-height: 40px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .seccion-trabajos {
-    height: 1200px;
   }
 }
 
@@ -638,21 +685,6 @@ a {
   z-index: 2;
 }
 
-/*.carrete::after {
-  content: "";
-  position: absolute;
-  top: -50px;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 50%;
-  background: red;
-  transform: skewY(8deg);
-  background: var(--color-p-claro);
-  z-index: -10;
-}
-*/
 @media (min-width: 768px) {
   .carrete {
     height: 650px;

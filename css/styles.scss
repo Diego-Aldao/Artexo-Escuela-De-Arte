@@ -2,9 +2,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-//GLOBALES
+  scroll-behavior: smooth;
+} //RESETEO CSS NAVEGADOR
 
+//*******************GLOBALES**************************//
 h1,
 h2,
 h3,
@@ -25,13 +26,28 @@ h1 {
 h2 {
   font-size: 1.3rem;
 }
+@media (min-width: 1024px) {
+  h2 {
+    font-size: 1.8rem;
+  }
+}
 
 h3 {
   font-size: 1.1rem;
 }
+@media (min-width: 1024px) {
+  h3 {
+    font-size: 1.6rem;
+  }
+}
 
 p {
   font-size: 0.8rem;
+}
+@media (min-width: 1024px) {
+  p {
+    font-size: 1rem;
+  }
 }
 
 img {
@@ -51,6 +67,7 @@ img {
 body {
   background-color: var(--color-fondo);
   overflow-x: hidden;
+  cursor: default;
 }
 a {
   color: white;
@@ -68,7 +85,7 @@ a {
   font-style: italic;
   letter-spacing: 1px;
 }
-//TIPOGRAFIA Y COLORES
+//*****************************TIPOGRAFIA Y COLORES*********************************//
 :root {
   --fuente-titulos: "Playfair Display", serif;
   --fuente-parrafos: "Source Sans Pro", sans-serif;
@@ -80,7 +97,7 @@ a {
   --color-fondo: #fefafa;
 }
 
-//FUNCIONES
+//*****************************FUNCIONES*********************************//
 @mixin background($size, $repeat, $position) {
   background-size: $size;
   background-repeat: $repeat;
@@ -94,7 +111,7 @@ a {
   align-items: $align;
 }
 
-//BOTONES
+///*****************************BOTONES*********************************//
 .btn,
 .btn-form {
   font-family: var(--fuente-parrafos);
@@ -107,11 +124,12 @@ a {
   font-size: 0.9rem;
   padding: 5px 15px;
   border-radius: 5px;
-  box-shadow: 1px 1px 15px #f39db6;
+  box-shadow: 1px 1px 15px #fafafa;
+  cursor: pointer;
 }
 
 .btn-presencial {
-  box-shadow: 0px 0px 15px #fefafa;
+  box-shadow: 0px 0px 15px #fe9db6;
 }
 
 .btn-form {
@@ -128,7 +146,7 @@ a {
   }
 }
 
-//INICIO CONTENIDO PRINCIPAL
+//*****************************INICIO HEADER*********************************//
 .header-principal {
   color: white;
   position: relative;
@@ -155,6 +173,7 @@ a {
   background: linear-gradient(to left, #6a4162b0, #d46a93af);
   z-index: 1;
 }
+
 .navegacion-principal {
   position: fixed;
   top: 0;
@@ -203,12 +222,12 @@ a {
     }
   }
 }
+
 .hero-contenido {
   width: 100%;
   height: 100%;
   @include flexbox(column, center, center);
   .contenedor {
-    height: 60%;
     padding: 0 10px;
     display: flex;
     flex-direction: column;
@@ -216,31 +235,36 @@ a {
     position: relative;
     z-index: 999;
     color: white;
-    max-width: 550px;
-    .titulo-principal {
-      text-align: center;
-      padding: 10px 0 5px 0;
-      max-width: 400px;
-      letter-spacing: 1px;
-      font-family: var(--fuente-titulos);
-      font-style: italic;
-    }
-    .descripcion-principal {
-      text-align: center;
-      width: 95%;
-      max-width: 340px;
-      font-family: var(--fuente-parrafos);
-      text-transform: capitalize;
-      color: rgb(231, 231, 231);
-      margin-top: 20px;
-    }
-    .btn {
-      margin-top: auto;
-      margin-bottom: 10px;
-      align-self: flex-end;
-    }
+    max-width: 950px;
+  }
+  .titulo-principal {
+    margin-top: 100px;
+    text-align: center;
+    padding: 10px 0 5px 0;
+    max-width: 400px;
+    letter-spacing: 1px;
+    font-family: var(--fuente-titulos);
+    font-style: italic;
+  }
+  .descripcion-principal {
+    text-align: center;
+    width: 95%;
+    max-width: 340px;
+    font-family: var(--fuente-parrafos);
+    text-transform: capitalize;
+    color: rgb(231, 231, 231);
+    margin-top: 20px;
+  }
+  .btn {
+    margin-top: auto;
+    margin-bottom: 10px;
+    align-self: flex-end;
   }
 }
+
+//*************INICIO QUERYS HEADER*************//
+
+//QUERY 520PX
 @media (min-width: 520px) {
   .header-principal {
     height: 400px;
@@ -249,6 +273,8 @@ a {
     }
   }
 }
+
+//QUERY 768PX
 @media (min-width: 768px) {
   .header-principal {
     height: 530px;
@@ -256,6 +282,22 @@ a {
   .navegacion-principal {
     .nav-header {
       width: 60%;
+    }
+  }
+
+  .hero-contenido {
+    .titulo-principal {
+      margin-top: 120px;
+      font-size: 2rem;
+      max-width: 450px;
+    }
+  }
+}
+
+@media (min-width: 900px) {
+  .navegacion-principal {
+    .nav-header {
+      width: 70%;
       .hamburguesa {
         display: none;
       }
@@ -263,7 +305,7 @@ a {
   }
   .oculto {
     display: block;
-    width: 80%;
+    width: 100%;
     height: 100%;
     display: flex;
     justify-content: space-evenly;
@@ -271,19 +313,38 @@ a {
     list-style: none;
   }
 }
+
+//QUERYS 1024PX EN ADELANTE
 @media (min-width: 1024px) {
+  .logo {
+    font-size: 1.5rem;
+  }
   .hero-contenido {
-    .contenedor {
-      max-height: 300px;
+    .titulo-principal {
+      margin-top: 150px;
+      font-size: 2.5rem;
+      max-width: 600px;
     }
   }
   .header-principal {
-    height: 610px;
+    height: 750px;
   }
 }
 @media (min-width: 1440px) {
   .header-principal {
-    height: 800px;
+    height: 900px;
+  }
+  .hero-contenido {
+    .titulo-principal {
+      margin-top: 200px;
+      font-size: 3rem;
+      max-width: 700px;
+    }
+  }
+  .oculto {
+    a {
+      font-size: 1.3rem;
+    }
   }
 }
 @media (min-width: 1800px) {
@@ -296,9 +357,16 @@ a {
   .header-principal {
     height: 1200px;
   }
+  .hero-contenido {
+    .titulo-principal {
+      margin-top: 250px;
+      font-size: 4rem;
+      max-width: 900px;
+    }
+  }
 }
 
-//INICIO PRIMER SECCION
+//*****************************INICIO PRIMER SECCION*********************************//
 .header-interno {
   width: 100%;
   height: 50px;
@@ -337,7 +405,7 @@ a {
     padding: 10px;
     font-style: italic;
     letter-spacing: 1px;
-    color: rgb(107, 107, 107);
+    color: rgb(100, 100, 100);
     margin: 10px 0 30px 0;
   }
   .descripcion-contenedor {
@@ -381,10 +449,9 @@ a {
   }
 }
 
-//QUERYS SECCION PRINCIPAL
+//********INICIO QUERYS SECCION PRINCIPAL*******//
 
 //QUERY 768PX
-
 @media (min-width: 768px) {
   .seccion-trabajos {
     .cartas {
@@ -409,9 +476,9 @@ a {
 }
 
 //QUERY 1024PX
-
 @media (min-width: 1024px) {
   .seccion-trabajos {
+    height: 1400px;
     .cartas {
       padding: 20px;
       .ilustracion {
@@ -428,16 +495,9 @@ a {
   }
 }
 
-@media (min-width: 1024px) {
-  .seccion-trabajos {
-    height: 1200px;
-  }
-}
+//*************FIN SECCION PRINCIPAL****************//
 
-//FIN SECCION PRINCIPAL
-
-//INICIO CARRETE
-
+//*****************************INICIO CARRETE*********************************//
 .carrete {
   position: relative;
   width: 100%;
@@ -460,61 +520,39 @@ a {
     z-index: 2;
   }
 }
-/*.carrete::after {
-  content: "";
-  position: absolute;
-  top: -50px;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 50%;
-  background: red;
-  transform: skewY(8deg);
-  background: var(--color-p-claro);
-  z-index: -10;
-}
-*/
 
-//QURYS CARRETE
+//**************INICIO QUERYS CARRETE****************//
 
-//MEDIA 1024PX
-
+//QUERY 768PX
 @media (min-width: 768px) {
   .carrete {
     height: 650px;
   }
 }
 
-//media 1244px
+//QUERYS 1244 EN ADELANTE
 @media (min-width: 1244px) {
   .carrete {
     height: 700px;
   }
 }
-
-//media 1440px
 @media (min-width: 1440px) {
   .carrete {
     height: 800px;
   }
 }
-
-//media 1700px
 @media (min-width: 1700px) {
   .carrete {
     height: 1000px;
   }
 }
-//media 2100px
 @media (min-width: 1700px) {
   .carrete {
     height: 1200px;
   }
 }
 
-//SECCION ONLINE
-
+//*****************************INICIO SECCION CURSOS ONLINE*********************************//
 .online {
   position: relative;
   background: var(--color-p-claro);
@@ -533,8 +571,9 @@ a {
   }
 }
 
-//INICIO TESTIMONIALES
+//*******************FIN SECCION CURSOS ONLINE******************//
 
+//*****************************INICIO SECCION TESTIMONIALES*********************************//
 .testimoniales {
   background: url(../images/hero-images/happy-artist-drawing-on-easel-in-workplace-3880775.jpg);
   @include background(cover, no-repeat, center);
@@ -620,15 +659,18 @@ a {
   position: relative;
   z-index: 10;
 }
+//********INICIO TESTIMONIALES QUERYS*******//
 
+//QUERY 768PX
 @media (min-width: 768px) {
   .testimoniales {
     @include flexbox(row, space-evenly, center);
   }
 }
 
-//INICIO FOOTER
+//****************FIN SECCION TESTIMONIALES****************//
 
+//*****************************INICIO FOOTER*********************************//
 footer {
   width: 100%;
   background: var(--color-p-claro);
@@ -722,7 +764,9 @@ footer {
   }
 }
 
-//REDES SOCIALES
+//*****************************FIN FOOTER********************************//
+
+//*****************************INICIO SECCION SOCIALES*********************************//
 
 .sociales {
   max-width: 490px;
@@ -750,6 +794,9 @@ footer {
     }
   }
 }
+//************FIN SECCION SOCIALES****************//
+
+//*****************************INICIO COPY********************************//
 .copy {
   background: rgba(0, 0, 0, 0.459);
   color: white;
@@ -758,3 +805,4 @@ footer {
   font-family: var(--fuente-titulos);
   font-size: 0.9rem;
 }
+//***************FIN COPY*****************//
