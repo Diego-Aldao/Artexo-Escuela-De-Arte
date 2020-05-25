@@ -95,17 +95,37 @@ a {
 }
 
 //BOTONES
-
-.btn {
+.btn,
+.btn-form {
   font-family: var(--fuente-parrafos);
   text-transform: capitalize;
+  background: linear-gradient(to left, #d46a92, #f39db6);
+  border: none;
+  color: white;
+}
+.btn {
   font-size: 0.9rem;
   padding: 5px 15px;
-  background: linear-gradient(to left, #d46a92, #f39db6);
   border-radius: 5px;
-  border: none;
-  color: rgb(255, 255, 255);
   box-shadow: 1px 1px 15px #f39db6;
+}
+
+.btn-presencial {
+  box-shadow: 0px 0px 15px #fefafa;
+}
+
+.btn-form {
+  margin: 0 auto;
+  width: 90%;
+  height: 40px;
+  border-radius: 30px;
+  i {
+    margin-left: 10px;
+    font-size: 1.2rem;
+  }
+  span {
+    @include flexbox(row, center, center);
+  }
 }
 
 //INICIO CONTENIDO PRINCIPAL
@@ -294,10 +314,11 @@ a {
     @include flexbox(column, space-evenly, center);
   }
   .cartas {
+    background: linear-gradient(45deg, #d46a92 1%, var(--color-fondo) 50%);
+    padding: 5px 5px;
     width: 90%;
     max-width: 350px;
     margin: 30px 0;
-    padding: 0px 5px;
     box-shadow: 1px 1px 20px rgb(219, 219, 219);
     display: flex;
     flex-direction: column;
@@ -321,8 +342,13 @@ a {
   }
   .descripcion-contenedor {
     padding: 0 5px;
-    height: 400px;
-    @include flexbox(column, center, center);
+    height: 500px;
+    @include flexbox(column, space-evenly, center);
+    .btn {
+      align-self: flex-end;
+      margin-bottom: -10px;
+      margin-right: 5px;
+    }
   }
   .descripcion {
     width: 100%;
@@ -348,7 +374,7 @@ a {
       width: 80%;
       height: 100%;
       text-transform: capitalize;
-      line-height: 25px;
+      line-height: 30px;
       padding-top: 15px;
       text-indent: 15px;
     }
@@ -362,7 +388,7 @@ a {
 @media (min-width: 768px) {
   .seccion-trabajos {
     .cartas {
-      max-width: 1200px;
+      max-width: 850px;
       flex-direction: row;
     }
     .ilustracion {
@@ -494,7 +520,7 @@ a {
   background: var(--color-p-claro);
   .cartas {
     box-shadow: 1px 1px 15px var(--color-secundario);
-    background: var(--color-fondo);
+    background: linear-gradient(-135deg, #d46a92 1%, var(--color-fondo) 50%);
   }
 }
 .carrete-online {
@@ -513,15 +539,27 @@ a {
   background: url(../images/hero-images/happy-artist-drawing-on-easel-in-workplace-3880775.jpg);
   @include background(cover, no-repeat, center);
   width: 100%;
-  height: 680px;
   position: relative;
   padding: 15px 0;
-  .contenedor {
+
+  h1 {
+    margin-bottom: 35px;
+    width: 100%;
+    height: 60px;
+    @include flexbox(row, center, center);
+    font-family: var(--fuente-titulos);
+    font-style: italic;
+    letter-spacing: 2px;
+    color: white;
+    position: relative;
+    z-index: 2;
+  }
+  .slick-vertical {
     @include flexbox(column, space-evenly, center);
   }
   .descripcion-testimoniales {
     margin: 15px 0;
-    background: #d46a92;
+    background: linear-gradient(#d46a92 1%, #f5d6d6 80%);
     position: relative;
     z-index: 2;
     display: flex;
@@ -559,16 +597,6 @@ a {
         font-style: italic;
       }
     }
-    .parrafo-testimoniales::after {
-      content: "";
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      left: 0;
-      top: 0;
-      background: linear-gradient(to bottom, #d46a92, #fefafa 90%);
-      z-index: -1;
-    }
   }
   .slick-track {
     @include flexbox(column, space-evenly, center);
@@ -583,7 +611,7 @@ a {
   left: 0;
   top: 0;
   background: #ee9ca7; /* fallback for old browsers */
-  background: linear-gradient(to left, #6a4162b0, #d46a93af);
+  background: linear-gradient(to left, #6a416285, #d46a93af);
   z-index: 1;
 }
 
@@ -597,4 +625,136 @@ a {
   .testimoniales {
     @include flexbox(row, space-evenly, center);
   }
+}
+
+//INICIO FOOTER
+
+footer {
+  width: 100%;
+  background: var(--color-p-claro);
+  .contenedor {
+    padding: 35px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+.titulo-contacto-form {
+  margin-bottom: 35px;
+  width: 100%;
+  height: 60px;
+  @include flexbox(row, center, center);
+  font-family: var(--fuente-titulos);
+  font-style: italic;
+  letter-spacing: 2px;
+}
+.formulario-contacto {
+  width: 100%;
+  max-width: 490px;
+  @include flexbox(column, center, center);
+  padding: 10px 10px;
+  background: var(--color-fondo);
+  border-radius: 10px;
+  .contenedor-form {
+    width: 100%;
+    height: 90px;
+    @include flexbox(column, space-evenly, flex-start);
+    margin: 15px 0;
+  }
+  .label-input100 {
+    font-size: 0.8rem;
+    font-family: var(--fuente-parrafos);
+  }
+  .input100,
+  .select-1 {
+    text-transform: capitalize;
+    font-family: var(--fuente-parrafos);
+    font-size: 1.1rem;
+    font-style: italic;
+    padding: 0 5px;
+    border: none;
+    outline: none;
+  }
+  .input100 {
+    width: 100%;
+    background: none;
+    height: 40px;
+  }
+  .select-1 {
+    width: 100%;
+    background: none;
+    height: 40px;
+    option {
+      box-shadow: 0 0 10px 100px #1882a8 inset;
+    }
+  }
+  .focus-input100 {
+    position: relative;
+    width: 100%;
+    height: 1.5px;
+    background: rgb(131, 131, 131);
+    overflow: hidden;
+  }
+  .focus-input100::after {
+    content: "";
+    width: 100%;
+    height: 2px;
+    top: 0;
+    left: -100%;
+    position: absolute;
+    background: #fd5998;
+    transition: all 0.3s ease-in-out;
+  }
+  .input100:focus + .focus-input100::after {
+    left: 0;
+  }
+  .form-mensaje {
+    height: 200px;
+    .input100 {
+      height: 130px;
+      padding: 10px 5px;
+    }
+  }
+  .contenedor-boton-form {
+    width: 100%;
+    height: 60px;
+    @include flexbox(column, space-evenly, flex-start);
+  }
+}
+
+//REDES SOCIALES
+
+.sociales {
+  max-width: 490px;
+  margin: 30px 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  h2 {
+    font-family: var(--fuente-titulos);
+    text-transform: uppercase;
+    font-style: italic;
+    width: 100%;
+    height: 50px;
+    @include flexbox(row, center, center);
+  }
+  .contenedor-redes {
+    width: 100%;
+    height: 80px;
+    @include flexbox(row, center, center);
+    i {
+      width: 25%;
+      height: 100%;
+      @include flexbox(row, center, center);
+      font-size: 2.5rem;
+    }
+  }
+}
+.copy {
+  background: rgba(0, 0, 0, 0.459);
+  color: white;
+  height: 30px;
+  @include flexbox(row, center, center);
+  font-family: var(--fuente-titulos);
+  font-size: 0.9rem;
 }
