@@ -39,12 +39,13 @@
     <title>Artexo Clases De Arte</title>
   </head>
   <body>
+    <!--***INICIO HEADER***-->
     <header class="header-principal">
-      <div class="navegacion-principal">
+      <!--***NAVEGACION PRINCIPAL***-->
+      <nav class="navegacion-principal">
         <div class="contenedor">
           <div class="contenedor-logo">
-            <h3 class="logo">artexo</h3>
-            <span>esp<i class="fas fa-angle-down"></i></span>
+            <h3><a href="#" class="logo">artexo</a></h3>
           </div>
           <div class="nav-header">
             <div class="hamburguesa">
@@ -53,7 +54,6 @@
               <span></span>
             </div>
             <ul class="oculto">
-              <li><a href="#">inicio</a></li>
               <li><a href="#clases-presenciales">cursos presenciales</a></li>
               <li><a href="#clases-online">cursos online</a></li>
               <li><a href="#testimoniales">testimonios</a></li>
@@ -61,7 +61,8 @@
             </ul>
           </div>
         </div>
-      </div>
+      </nav>
+      <!--FIN NAVEGACION PRINCIPAL-->
       <div class="hero-contenido">
         <div class="contenedor">
           <h1 class="titulo-principal">
@@ -72,6 +73,7 @@
           </p>
         </div>
       </div>
+      <!--SVG DE LA CURVA-->
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
         <path
           fill-opacity="1"
@@ -79,6 +81,9 @@
         ></path>
       </svg>
     </header>
+    <!--FIN HEADER-->
+
+    <!--***INICIO SECCION CLASES PRESENCIALES***-->
     <section id="clases-presenciales" class="seccion-trabajos presencial">
       <div class="contenedor">
         <header class="header-interno">
@@ -152,6 +157,9 @@
         </div>
       </div>
     </section>
+    <!--FIN SECCION CLASES PRESENCIALES-->
+
+    <!--***INICIO CARRETE PRESENCIAL***-->
     <section class="carrete">
       <div class="contenedor">
         <header class="header-interno">
@@ -188,6 +196,9 @@
         ></path>
       </svg>
     </section>
+    <!--FIN CARRETE PRESENCIAL-->
+
+    <!--***INICIO SECCION CLASES ONLINE***-->
     <section id="clases-online" class="seccion-trabajos online">
       <div class="contenedor">
         <header class="header-interno">
@@ -261,6 +272,9 @@
         </div>
       </div>
     </section>
+    <!--FIN SECCION CLASES ONLINE-->
+
+    <!--***INICIO CARRETE ONLINE***-->
     <section class="carrete carrete-online">
       <div class="contenedor">
         <header class="header-interno">
@@ -291,6 +305,9 @@
         </div>
       </div>
     </section>
+    <!--FIN CARRETE ONLINE-->
+
+    <!--***INICIO SECCION TESTIMONIOS***-->
     <section id="testimoniales" class="testimoniales">
       <h1>TESTIMONIOS</h1>
       <div class="contenedor slick-vertical">
@@ -350,6 +367,9 @@
         </div>
       </div>
     </section>
+    <!--FIN SECCION TESTIMONIOS-->
+
+    <!--***INICIO FOOTER***-->
     <footer id="contacto">
       <div class="contenedor">
         <h1 class="titulo-contacto-form">
@@ -420,6 +440,25 @@
         <span>&copy; 2020 Artexo Derechos Reservados</span>
       </div>
     </footer>
+    <!--FIN FOOTER-->
+
+    <!--***INICIO MENU DESPLEGABLE***-->
+    <nav class="menu-desplegable">
+      <h3><a href="#" class="logo">artexo</a></h3>
+      <div class="btn-cerrar">
+        <span class="linea-cerrar"></span><span class="linea-cerrar"></span>
+      </div>
+      <div class="contenedor-categorias">
+        <h2>
+          <a class="categorias" href="#clases-presenciales"
+            >cursos presenciales</a
+          >
+        </h2>
+        <h2><a class="categorias" href="#clases-online">cursos online</a></h2>
+        <h2><a class="categorias" href="#testimoniales">testimonios</a></h2>
+        <h2><a class="categorias" href="#contacto">contacto</a></h2>
+      </div>
+    </nav>
 
     <!--JQUERY-->
     <script

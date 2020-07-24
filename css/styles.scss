@@ -51,13 +51,14 @@ p {
 }
 
 img {
-  max-width: 100%;
+  width: 100%;
+  object-fit: fill;
 }
 
 .contenedor {
   width: 90%;
-  margin: 0 auto;
   height: 100%;
+  margin: 0 auto;
 }
 
 .oculto {
@@ -65,8 +66,8 @@ img {
 }
 
 body {
-  background-color: var(--color-fondo);
   overflow-x: hidden;
+  background-color: var(--color-fondo);
   cursor: default;
 }
 a {
@@ -84,6 +85,11 @@ a {
   text-transform: uppercase;
   font-style: italic;
   letter-spacing: 1px;
+}
+.logo {
+  font-family: var(--fuente-logo);
+  text-transform: uppercase;
+  font-style: normal;
 }
 //*****************************TIPOGRAFIA Y COLORES*********************************//
 :root {
@@ -114,28 +120,29 @@ a {
 ///*****************************BOTONES*********************************//
 .btn,
 .btn-form {
+  border: none;
+  color: white;
   font-family: var(--fuente-parrafos);
   text-transform: capitalize;
   background: linear-gradient(to left, #d46a92, #f39db6);
-  border: none;
-  color: white;
+  cursor: pointer;
 }
 .btn {
-  font-size: 0.9rem;
   padding: 5px 15px;
   border-radius: 5px;
   box-shadow: 1px 1px 15px #fafafa;
-  cursor: pointer;
+  font-size: 0.9rem;
 }
 
 .btn-presencial {
   box-shadow: 0px 0px 15px #fe9db6;
+  cursor: pointer;
 }
 
 .btn-form {
-  margin: 0 auto;
-  width: 90%;
+  width: 50%;
   height: 40px;
+  margin: 0 auto;
   border-radius: 30px;
   i {
     margin-left: 10px;
@@ -148,11 +155,11 @@ a {
 
 //*****************************INICIO HEADER*********************************//
 .header-principal {
-  color: white;
   position: relative;
   width: 100%;
   height: 380px;
-  background: url(../images/hero-images/woman-sitting-on-brown-stool-374054.jpg);
+  color: white;
+  background: url("/images/hero-images/portada01.webp");
   @include background(cover, no-repeat, center);
   svg {
     position: absolute;
@@ -164,14 +171,14 @@ a {
 }
 .header-principal::after {
   content: "";
-  width: 100%;
-  height: 100%;
   position: absolute;
   left: 0;
   top: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
   background: #ee9ca7; /* fallback for old browsers */
   background: linear-gradient(to left, #6a4162b0, #d46a93af);
-  z-index: 1;
 }
 
 .navegacion-principal {
@@ -183,19 +190,15 @@ a {
   height: 45px;
   background: rgba(0, 0, 0, 0.432);
   .contenedor {
-    display: flex;
     @include flexbox(row, space-between, center);
   }
   .contenedor-logo {
-    height: 100%;
     width: 40%;
-    @include flexbox(row, space-between, center);
     min-width: 160px;
     max-width: 200px;
-    .logo {
-      font-family: var(--fuente-logo);
-      text-transform: uppercase;
-    }
+    height: 100%;
+    @include flexbox(row, space-between, center);
+
     span {
       width: 40%;
       @include flexbox(row, space-evenly, center);
@@ -228,32 +231,33 @@ a {
   height: 100%;
   @include flexbox(column, center, center);
   .contenedor {
-    padding: 0 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     position: relative;
     z-index: 999;
-    color: white;
     max-width: 950px;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    color: white;
+    flex-direction: column;
   }
   .titulo-principal {
-    margin-top: 100px;
-    text-align: center;
-    padding: 10px 0 5px 0;
     max-width: 400px;
-    letter-spacing: 1px;
+    margin-top: 100px;
+    padding: 10px 0 5px 0;
     font-family: var(--fuente-titulos);
+    text-align: center;
+    letter-spacing: 1px;
     font-style: italic;
   }
   .descripcion-principal {
-    text-align: center;
     width: 95%;
-    max-width: 340px;
-    font-family: var(--fuente-parrafos);
-    text-transform: capitalize;
-    color: rgb(231, 231, 231);
+    max-width: 440px;
     margin-top: 20px;
+    color: rgb(231, 231, 231);
+    font-family: var(--fuente-parrafos);
+    text-align: center;
+    text-transform: capitalize;
+    font-size: clamp(0.8rem, 2vw, 1.3rem);
   }
   .btn {
     margin-top: auto;
@@ -262,9 +266,7 @@ a {
   }
 }
 
-//*************INICIO QUERYS HEADER*************//
-
-//QUERY 520PX
+//INICIO QUERYS HEADER
 @media (min-width: 520px) {
   .header-principal {
     height: 400px;
@@ -273,8 +275,6 @@ a {
     }
   }
 }
-
-//QUERY 768PX
 @media (min-width: 768px) {
   .header-principal {
     height: 530px;
@@ -304,26 +304,21 @@ a {
     }
   }
   .oculto {
-    display: block;
     width: 100%;
     height: 100%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+    @include flexbox(row, space-evenly, center);
     list-style: none;
   }
 }
-
-//QUERYS 1024PX EN ADELANTE
 @media (min-width: 1024px) {
   .logo {
     font-size: 1.5rem;
   }
   .hero-contenido {
     .titulo-principal {
+      max-width: 600px;
       margin-top: 150px;
       font-size: 2.5rem;
-      max-width: 600px;
     }
   }
   .header-principal {
@@ -336,9 +331,9 @@ a {
   }
   .hero-contenido {
     .titulo-principal {
+      max-width: 700px;
       margin-top: 200px;
       font-size: 3rem;
-      max-width: 700px;
     }
   }
   .oculto {
@@ -359,14 +354,15 @@ a {
   }
   .hero-contenido {
     .titulo-principal {
+      max-width: 900px;
       margin-top: 250px;
       font-size: 4rem;
-      max-width: 900px;
     }
   }
 }
+//********FIN SECCION HEADER*******//
 
-//*****************************INICIO PRIMER SECCION*********************************//
+//************************INICIO SECCION PRINCIPAL****************************//
 .header-interno {
   width: 100%;
   height: 50px;
@@ -375,43 +371,43 @@ a {
 
 .seccion-trabajos {
   position: relative;
-  color: rgb(71, 71, 71);
   padding: 30px 0;
+  color: rgb(71, 71, 71);
 
   .contenedor {
     @include flexbox(column, space-evenly, center);
   }
   .cartas {
-    background: linear-gradient(45deg, #d46a92 1%, var(--color-fondo) 50%);
-    padding: 5px 5px;
     width: 90%;
     max-width: 350px;
-    margin: 30px 0;
-    box-shadow: 1px 1px 20px rgb(219, 219, 219);
     display: flex;
     flex-direction: column;
+    margin: 30px 0;
+    padding: 5px 5px;
+    box-shadow: 1px 1px 20px rgba(219, 219, 219, 0.568);
+    background: linear-gradient(45deg, #d46a92 1%, var(--color-fondo) 50%);
     .ilustracion {
       img {
-        height: 292px;
         width: 100%;
+        height: 292px;
       }
     }
   }
   .nombre-curso {
     width: 100%;
     height: 30px;
+    padding: 10px;
+    margin: 10px 0 30px 0;
+    color: rgb(100, 100, 100);
     text-align: center;
     text-transform: uppercase;
-    padding: 10px;
     font-style: italic;
     letter-spacing: 1px;
-    color: rgb(100, 100, 100);
-    margin: 10px 0 30px 0;
   }
   .descripcion-contenedor {
-    padding: 0 5px;
     height: 500px;
     @include flexbox(column, space-evenly, center);
+    padding: 0 5px;
     .btn {
       align-self: flex-end;
       margin-bottom: -10px;
@@ -426,32 +422,30 @@ a {
       width: 20%;
       height: 100%;
       p {
+        width: 35px;
         height: 35px;
         @include flexbox(row, center, center);
-        width: 35px;
         margin: 5px auto;
         border-radius: 50%;
-        font-weight: bold;
-        font-size: 1.1rem;
+        box-shadow: 1px 1px 15px #f39db6;
         color: white;
         background: linear-gradient(to left, #d46a92, #f39db6);
-        box-shadow: 1px 1px 15px #f39db6;
+        font-weight: bold;
+        font-size: 1.1rem;
       }
     }
     .parrafo {
       width: 80%;
       height: 100%;
+      padding-top: 15px;
       text-transform: capitalize;
       line-height: 30px;
-      padding-top: 15px;
       text-indent: 15px;
     }
   }
 }
 
-//********INICIO QUERYS SECCION PRINCIPAL*******//
-
-//QUERY 768PX
+//INICIO QUERYS SECCION PRINCIPAL
 @media (min-width: 768px) {
   .seccion-trabajos {
     .cartas {
@@ -474,8 +468,6 @@ a {
     }
   }
 }
-
-//QUERY 1024PX
 @media (min-width: 1024px) {
   .seccion-trabajos {
     height: 1400px;
@@ -494,43 +486,39 @@ a {
     }
   }
 }
-
 //*************FIN SECCION PRINCIPAL****************//
 
-//*****************************INICIO CARRETE*********************************//
+//***************************INICIO CARRETE*******************************//
 .carrete {
   position: relative;
   width: 100%;
   height: 550px;
   .contenedor-carrete {
-    margin-top: 25px;
     width: 100%;
-    padding: 10px 0;
     display: flex;
     align-items: center;
+    margin-top: 25px;
+    padding: 10px 0;
     .imagenes-carrete {
       margin: 0 10px;
+      cursor: pointer;
     }
   }
   svg {
     position: absolute;
     bottom: 0;
     left: 0;
-    fill: var(--color-p-claro);
     z-index: 2;
+    fill: var(--color-p-claro);
   }
 }
 
-//**************INICIO QUERYS CARRETE****************//
-
-//QUERY 768PX
+//INICIO QUERYS CARRETE
 @media (min-width: 768px) {
   .carrete {
     height: 650px;
   }
 }
-
-//QUERYS 1244 EN ADELANTE
 @media (min-width: 1244px) {
   .carrete {
     height: 700px;
@@ -557,65 +545,62 @@ a {
   position: relative;
   background: var(--color-p-claro);
   .cartas {
-    box-shadow: 1px 1px 15px var(--color-secundario);
+    box-shadow: 1px 1px 15px #6a416244;
     background: linear-gradient(-135deg, #d46a92 1%, var(--color-fondo) 50%);
   }
 }
 .carrete-online {
-  background: var(--color-p-claro);
   height: 450px;
+  background: var(--color-p-claro);
   .imagenes-carrete {
     height: 300px;
     @include flexbox(row, center, center);
     background: var(--color-fondo);
   }
 }
-
 //*******************FIN SECCION CURSOS ONLINE******************//
 
 //*****************************INICIO SECCION TESTIMONIALES*********************************//
 .testimoniales {
-  background: url(../images/hero-images/happy-artist-drawing-on-easel-in-workplace-3880775.jpg);
-  @include background(cover, no-repeat, center);
-  width: 100%;
   position: relative;
+  width: 100%;
   padding: 15px 0;
+  background: url("/images/hero-images/portada02.webp");
+  @include background(cover, no-repeat, center);
 
   h1 {
-    margin-bottom: 35px;
+    position: relative;
+    z-index: 2;
     width: 100%;
     height: 60px;
     @include flexbox(row, center, center);
+    margin-bottom: 35px;
+    color: white;
     font-family: var(--fuente-titulos);
     font-style: italic;
     letter-spacing: 2px;
-    color: white;
-    position: relative;
-    z-index: 2;
   }
   .slick-vertical {
     @include flexbox(column, space-evenly, center);
   }
   .descripcion-testimoniales {
-    margin: 15px 0;
-    background: linear-gradient(#d46a92 1%, #f5d6d6 80%);
     position: relative;
     z-index: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 300px;
     max-width: 260px;
+    min-height: 300px;
+    @include flexbox(column, center, center);
+    margin: 15px 0;
+    background: linear-gradient(#d46a92 1%, #f5d6d6 80%);
     .imagen-testimoniales {
-      background: url(../images/testimoniales/SinTítulo.png);
-      @include background(cover, no-repeat, center);
       height: 60px;
       width: 60px;
-      border-radius: 50%;
       margin: 10px 0;
+      border-radius: 50%;
+      background: url("/images/testimoniales/SinTítulo.webp");
+      @include background(cover, no-repeat, center);
     }
     .imagen-dos {
-      background: url(../images/testimoniales/SinTítulo2.png);
+      background: url("/images/testimoniales/SinTítulo2.webp");
       @include background(cover, no-repeat, center);
     }
     .parrafo-testimoniales {
@@ -643,31 +628,29 @@ a {
   }
 }
 .testimoniales::after {
-  content: "";
-  width: 100%;
-  height: 100%;
   position: absolute;
   left: 0;
   top: 0;
+  z-index: 1;
+  content: "";
+  width: 100%;
+  height: 100%;
   background: #ee9ca7; /* fallback for old browsers */
   background: linear-gradient(to left, #6a416285, #d46a93af);
-  z-index: 1;
 }
 
 .slick-vertical {
-  margin: 0 20px;
   position: relative;
   z-index: 10;
+  margin: 0 20px;
 }
-//********INICIO TESTIMONIALES QUERYS*******//
 
-//QUERY 768PX
+//INICIO MEDIA QUERYS TESTIMONIALES
 @media (min-width: 768px) {
   .testimoniales {
     @include flexbox(row, space-evenly, center);
   }
 }
-
 //****************FIN SECCION TESTIMONIALES****************//
 
 //*****************************INICIO FOOTER*********************************//
@@ -675,17 +658,15 @@ footer {
   width: 100%;
   background: var(--color-p-claro);
   .contenedor {
+    @include flexbox(column, center, center);
     padding: 35px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
   }
 }
 .titulo-contacto-form {
-  margin-bottom: 35px;
   width: 100%;
   height: 60px;
   @include flexbox(row, center, center);
+  margin-bottom: 35px;
   font-family: var(--fuente-titulos);
   font-style: italic;
   letter-spacing: 2px;
@@ -695,8 +676,8 @@ footer {
   max-width: 490px;
   @include flexbox(column, center, center);
   padding: 10px 10px;
-  background: var(--color-fondo);
   border-radius: 10px;
+  background: var(--color-fondo);
   .contenedor-form {
     width: 100%;
     height: 90px;
@@ -709,23 +690,24 @@ footer {
   }
   .input100,
   .select-1 {
+    padding: 0 5px;
+    border: none;
+    outline: none;
     text-transform: capitalize;
     font-family: var(--fuente-parrafos);
     font-size: 1.1rem;
     font-style: italic;
-    padding: 0 5px;
-    border: none;
-    outline: none;
   }
   .input100 {
     width: 100%;
-    background: none;
     height: 40px;
+    background: none;
   }
   .select-1 {
     width: 100%;
-    background: none;
     height: 40px;
+    background: none;
+    cursor: pointer;
     option {
       box-shadow: 0 0 10px 100px #1882a8 inset;
     }
@@ -734,16 +716,16 @@ footer {
     position: relative;
     width: 100%;
     height: 1.5px;
-    background: rgb(131, 131, 131);
     overflow: hidden;
+    background: rgb(131, 131, 131);
   }
   .focus-input100::after {
     content: "";
-    width: 100%;
-    height: 2px;
+    position: absolute;
     top: 0;
     left: -100%;
-    position: absolute;
+    width: 100%;
+    height: 2px;
     background: #fd5998;
     transition: all 0.3s ease-in-out;
   }
@@ -763,34 +745,44 @@ footer {
     @include flexbox(column, space-evenly, flex-start);
   }
 }
+//******************FIN FOOTER*********************//
 
-//*****************************FIN FOOTER********************************//
-
-//*****************************INICIO SECCION SOCIALES*********************************//
-
+//*****************************INICIO SECCION SOCIALES*****************************//
 .sociales {
-  max-width: 490px;
-  margin: 30px 0;
   width: 100%;
+  max-width: 490px;
   display: flex;
   flex-direction: column;
+  margin: 30px 0;
   h2 {
-    font-family: var(--fuente-titulos);
-    text-transform: uppercase;
-    font-style: italic;
     width: 100%;
     height: 50px;
     @include flexbox(row, center, center);
+    font-family: var(--fuente-titulos);
+    text-transform: uppercase;
+    font-style: italic;
   }
   .contenedor-redes {
     width: 100%;
     height: 80px;
     @include flexbox(row, center, center);
+  }
+  i {
+    margin: 0px 5px;
+    @include flexbox(row, center, center);
+    font-size: 2.5rem;
+    color: #6a4162;
+  }
+  i:hover {
+    color: #d46a92;
+  }
+}
+
+//INICIO MEDIA QUERYS SECCION SOCIALES
+@media (min-width: 768px) {
+  .sociales {
     i {
-      width: 25%;
-      height: 100%;
-      @include flexbox(row, center, center);
-      font-size: 2.5rem;
+      margin: 0px 35px;
     }
   }
 }
@@ -798,11 +790,74 @@ footer {
 
 //*****************************INICIO COPY********************************//
 .copy {
-  background: rgba(0, 0, 0, 0.459);
-  color: white;
   height: 30px;
   @include flexbox(row, center, center);
+  color: white;
+  background: rgba(0, 0, 0, 0.459);
   font-family: var(--fuente-titulos);
   font-size: 0.9rem;
 }
 //***************FIN COPY*****************//
+
+//******************INICIO MENU DESPLEGABLE******************//
+.menu-desplegable {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  z-index: 99999;
+  width: 100%;
+  max-width: 400px;
+  height: 100%;
+  transition: all 0.3s ease-in-out;
+  .logo {
+    position: absolute;
+    z-index: 5;
+    padding: 10px 20px;
+    font-size: 1.5rem;
+  }
+  .btn-cerrar {
+    position: absolute;
+    right: 0px;
+    top: 0;
+    z-index: 2;
+    width: 45px;
+    height: 45px;
+    @include flexbox(column, center, center); //para centrar las lineas
+  }
+  .linea-cerrar {
+    position: absolute;
+    width: 40px;
+    height: 2px;
+    background: white;
+    transform: rotate(45deg);
+  }
+  .linea-cerrar:nth-child(2) {
+    transform: rotate(-45deg);
+  }
+  .contenedor-categorias {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding-top: 100px;
+    background: #f39db6; //para navegadores no compatibles al gradiente
+    background: linear-gradient(to left, #d46a92, #f39db6);
+    @include flexbox(column, flex-start, center);
+  }
+  .categorias {
+    height: 50px;
+    margin: 30px 0;
+    display: block;
+    padding: 10px;
+    color: white;
+    font-size: 1.5rem;
+    text-transform: capitalize;
+    font-family: var(--fuente-titulos);
+  }
+}
+//INICIO MEDIA QUERYS MENU DESPLEGABLE
+@media (min-width: 900px) {
+  .menu-desplegable {
+    display: none;
+  }
+}
+//********FIN MENU DESPLEGABLE*********//
